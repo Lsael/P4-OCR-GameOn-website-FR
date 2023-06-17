@@ -85,7 +85,7 @@ img {
     margin: 30px 30px 0;
   }
   .topnav img {
-    width: 100px;
+    width: 112px;
   }
   .topnav.responsive {
     position: relative;
@@ -488,6 +488,7 @@ footer {
   .hero-section {
     display: block;
     box-shadow: unset;
+    margin-bottom: 0;
   }
   .hero-content {
     background: #fff;
@@ -505,7 +506,7 @@ footer {
     white-space: normal;
   }
   .hero-text {
-    width: unset;
+    width: 85%;
     font-size: 14px;
     margin-top: 20px;
   }
@@ -515,11 +516,11 @@ footer {
   }
   .hero-section > .btn-signup {
     display: block;
-    margin: 32px auto 10px;
+    margin: 32px auto 0px;
     padding: 12px 35px;
   }
   .copyrights {
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: center;
   }
 }
