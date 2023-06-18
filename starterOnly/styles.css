@@ -69,46 +69,6 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-    color: red;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav {
-    margin: 30px 30px 0;
-  }
-  .topnav img {
-    width: 112px;
-  }
-  .topnav.responsive {
-    position: relative;
-    flex-direction: column;
-  }
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .topnav a {
-    display: none;
-  }
-}
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -485,7 +445,56 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
+
+@media screen and (min-width: 768px) and (max-width: 1025px) {
+  .topnav img {
+    width: 180px;
+  }
+  .main-navbar a {
+    font-size: 14px;
+  }
+  .hero-content::after {
+    width: 0;
+  }
+  .hero-headline {
+    font-size: 60px;
+  }
+  .hero-text {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .topnav {
+    margin: 30px 30px 0;
+  }
+  .topnav img {
+    width: 112px;
+  }
+  .topnav.responsive {
+    position: relative;
+    flex-direction: column;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav a {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+    color: red;
+  }
+
+
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -525,6 +534,13 @@ footer {
     text-align: center;
   }
 }
+
+@media screen and (max-width: 540px) {
+  .topnav a {
+    display: none;
+  }
+}
+
 
 @keyframes modalopen {
   from {
