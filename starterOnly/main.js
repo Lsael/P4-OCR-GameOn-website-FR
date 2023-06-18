@@ -6,4 +6,3 @@ const editNav = () => {
       x.className = "topnav";
     }
   }
-  
