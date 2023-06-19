@@ -13,6 +13,19 @@ const validName = (name) => {
   return !regex.test(name)
 }
 
+const formValidationModal = () => {
+  const modal = document.querySelector('.modal-body')
+  const modalForm = document.querySelector('.modal-body > form')
+
+  const message = document.createElement('span')
+  message.innerText = 'Merci pour votre inscription'
+  const button = document.createElement('span')
+  button.innerText = 'Fermer'
+
+  modalForm.remove()
+  modal.append(message, button)
+}
+
 // function is called on modal submit
 const validate = () => {
   const firstName = document.querySelector("#first").value
@@ -24,6 +37,7 @@ const validate = () => {
   const newsLetterSubcribe = document.querySelector("#checkbox2").value
 
   console.log(validName(firstName))
-
-  return false
+  formValidationModal()
+  
+  return true
 }
