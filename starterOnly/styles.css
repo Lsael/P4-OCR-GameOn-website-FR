@@ -372,8 +372,9 @@ input[data-error]::after {
 }
 /* Validation modal */
 .validation {
-  display: none;
+  display: flex;
   justify-content: center;
+  visibility: hidden;
 }
 .validation-text {
   position: absolute;

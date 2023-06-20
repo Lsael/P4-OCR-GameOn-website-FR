@@ -14,12 +14,12 @@ const validName = (name) => {
 }
 
 const formValidationModal = () => {
-  const modalForm = document.querySelector('.modal-body > form')
+  const modalBody = document.querySelector('.modal-body > form')
   const validationModal = document.querySelector('.validation')
 
-  modalForm.style.opacity = "0"
-  modalForm.style.visibility = "hidden"
-  validationModal.style.display = "flex"
+  modalBody.style.opacity = "0"
+  modalBody.style.visibility = "hidden"
+  validationModal.style.visibility = "visible"
 }
 
 // function is called on modal submit
