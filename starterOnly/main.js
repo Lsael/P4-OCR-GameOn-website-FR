@@ -13,6 +13,7 @@ const validName = (name) => {
   return !regex.test(name)
 }
 
+// Trigger the validation modal
 const formValidationModal = () => {
   const modalBody = document.querySelector('.modal-body > form')
   const validationModal = document.querySelector('.validation')
