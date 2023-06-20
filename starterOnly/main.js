@@ -14,16 +14,12 @@ const validName = (name) => {
 }
 
 const formValidationModal = () => {
-  const modal = document.querySelector('.modal-body')
   const modalForm = document.querySelector('.modal-body > form')
+  const validationModal = document.querySelector('.validation')
 
-  const message = document.createElement('span')
-  message.innerText = 'Merci pour votre inscription'
-  const button = document.createElement('span')
-  button.innerText = 'Fermer'
-
-  modalForm.remove()
-  modal.append(message, button)
+  modalForm.style.opacity = "0"
+  modalForm.style.visibility = "hidden"
+  validationModal.style.display = "flex"
 }
 
 // function is called on modal submit
@@ -39,5 +35,5 @@ const validate = () => {
   console.log(validName(firstName))
   formValidationModal()
   
-  return true
+  return false
 }
