@@ -6,7 +6,7 @@ const formData = document.querySelectorAll(".formData");
 const validationModal = document.querySelector(".validation");
 const modalBody = document.querySelector(".modal-body > form");
 
-const modalCloseBtn = document.querySelectorAll(".close")
+const modalCloseBtn = document.querySelectorAll(".close-modal")
 
 // launch modal form
 const launchModal = () => {
