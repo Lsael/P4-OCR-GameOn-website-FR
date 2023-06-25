@@ -28,12 +28,20 @@ const validEmail = (email) => {
   return regex.test(email);
 };
 
+const validBirthdate = (birthdate) => {
+  const date = new Date(birthdate);
+  const currentDate = new Date();
+  return date instanceof Date && !isNaN(date) && date.getFullYear() >= 1900 && date <= currentDate;
+};
+
 const firstName = document.querySelector('#first');
 const lastName = document.querySelector('#last');
 const email = document.querySelector('#email');
 const birthdate = document.querySelector('#birthdate');
 const quantity = document.querySelector('#quantity');
 const cgValid = document.querySelector('#checkbox1');
+
+birthdate.addEventListener('invalid', (e) => console.log('faux'));
 
 // function is called on modal submit
 const validate = () => {
@@ -60,14 +68,14 @@ const validate = () => {
     document.querySelector('.email-error').style.display = 'none';
   }
 
-  /*  if(!validBirthdate(birthdate)) {
-    document.querySelector(".birthdate-error").style.display = "block"
-    status = false
+  if (!validBirthdate(birthdate.value)) {
+    document.querySelector('.birthdate-error').style.display = 'block';
+    status = false;
   } else {
-    document.querySelector(".birthdate-error").style.display = "none"
+    document.querySelector('.birthdate-error').style.display = 'none';
   }
 
-  if(!validQuantity(quantity)) {
+  /*  if(!validQuantity(quantity)) {
     document.querySelector(".quantity-error").style.display = "block"
     status = false
   } else {
