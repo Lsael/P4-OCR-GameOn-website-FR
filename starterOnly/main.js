@@ -21,11 +21,11 @@ const formValidationModal = () => {
 const validName = (name) => {
   const regex = /^[aA-zZ]{2,}$/;
   return regex.test(name);
-}
-;
-const validEmail = (name) => {
-  const regex = /^([aA-zZ]{2,})+@+([aA-zZ]{2,})+.+([aA-zZ]{2,4})$/;
-  return regex.test(name);
+};
+
+const validEmail = (email) => {
+  const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  return regex.test(email);
 };
 
 const firstName = document.querySelector('#first');
@@ -53,14 +53,14 @@ const validate = () => {
     document.querySelector('.lastname-error').style.display = 'none';
   }
 
-     if(!validEmail(email)) {
-    document.querySelector(".email-error").style.display = "block"
-    status = false
+  if (!validEmail(email.value)) {
+    document.querySelector('.email-error').style.display = 'block';
+    status = false;
   } else {
-    document.querySelector(".email-error").style.display = "none"
+    document.querySelector('.email-error').style.display = 'none';
   }
 
-/*  if(!validBirthdate(birthdate)) {
+  /*  if(!validBirthdate(birthdate)) {
     document.querySelector(".birthdate-error").style.display = "block"
     status = false
   } else {
