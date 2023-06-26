@@ -17,7 +17,7 @@ const formValidationModal = () => {
   validationModal.style.visibility = 'visible';
 };
 
-// validName verify the name , return true if valid
+// validName verify the name, return true if valid
 const validName = (name) => {
   const regex = /^[aA-zZ\s-]{2,}$/;
   return regex.test(name);
