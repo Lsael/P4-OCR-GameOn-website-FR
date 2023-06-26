@@ -86,7 +86,7 @@
                   id="first"
                   name="first"
                   min="2"/><br />
-                <span class="error firstname-error">Le prénom doit ne peut contenir que des lettres et au minimum 2 caractères</span>
+                <span class="error">Le prénom doit ne peut contenir que des lettres et au minimum 2 caractères</span>
               </div>
               <div class="formData">
                 <label for="last">Nom</label><br />
@@ -95,7 +95,7 @@
                   type="text"
                   id="last"
                   name="last" /><br />
-                <span class="error lastname-error">Le nom doit ne peut contenir que des lettres et au minimum 2 caractères</span>
+                <span class="error">Le nom doit ne peut contenir que des lettres et au minimum 2 caractères</span>
               </div>
               <div class="formData">
                 <label for="email">E-mail</label><br />
@@ -104,7 +104,7 @@
                   type="email"
                   id="email"
                   name="email" /><br />
-                <span class="error email-error">L'adresse email n'est pas valide</span>
+                <span class="error">L'adresse email n'est pas valide</span>
               </div>
               <div class="formData">
                 <label for="birthdate">Date de naissance</label><br />
@@ -113,7 +113,7 @@
                   type="date"
                   id="birthdate"
                   name="birthdate" /><br />
-                <span class="error birthdate-error">La date de naissance n'est pas valide</span>
+                <span class="error">La date de naissance n'est pas valide</span>
               </div>
               <div class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br />
@@ -121,10 +121,8 @@
                   type="number"
                   class="text-control"
                   id="quantity"
-                  name="quantity"
-                  min="0"
-                  max="99" />
-                <span class="error quantity-error">Veuillez remplir ce champ</span>
+                  name="quantity" />
+                <span class="error">Veuillez saisir un nombre entre 1 et 99</span>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div class="formData">
@@ -200,7 +198,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
-                <span class="error tournament-error">Veuillez choisir un tournoi</span>
+                <span class="error">Veuillez choisir un tournoi</span>
               </div>
 
               <div class="formData">
@@ -216,7 +214,7 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <span class="error CG-error">Veuillez accepter les conditions générales</span>
+                <span class="error">Veuillez accepter les conditions générales</span>
                 <br />
                 <input
                   class="checkbox-input"
@@ -235,7 +233,7 @@
                 type="submit"
                 class="button"
                 value="C'est parti" />
-              <span class="error submit-error">Les informations sont incorrectes, veuillez remplir tout les champs</span>
+              <span class="error">Les informations sont incorrectes, veuillez remplir tout les champs</span>
             </form>
             <div class="validation">
               <span class="validation-text">Merci pour votre inscription</span>

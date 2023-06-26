@@ -17,81 +17,89 @@ const formValidationModal = () => {
   validationModal.style.visibility = 'visible';
 };
 
-// validName verify if the name contain only alphabetic caracters, return true if valid
+// validName verify the name , return true if valid
 const validName = (name) => {
-  const regex = /^[aA-zZ]{2,}$/;
+  const regex = /^[aA-zZ\s-]{2,}$/;
   return regex.test(name);
 };
 
+// validEmail verify the email address, return true if valid
 const validEmail = (email) => {
   const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
   return regex.test(email);
 };
 
+// ValidBirthdate verify if the date is valid and between year 1900 and today date.
 const validBirthdate = (birthdate) => {
   const date = new Date(birthdate);
   const currentDate = new Date();
   return date instanceof Date && !isNaN(date) && date.getFullYear() >= 1900 && date <= currentDate;
 };
 
-const firstName = document.querySelector('#first');
-const lastName = document.querySelector('#last');
-const email = document.querySelector('#email');
-const birthdate = document.querySelector('#birthdate');
-const quantity = document.querySelector('#quantity');
-const cgValid = document.querySelector('#checkbox1');
-
-birthdate.addEventListener('invalid', (e) => console.log('faux'));
-
 // function is called on modal submit
 const validate = () => {
   let status = true;
+  const firstname = document.querySelector('#first');
+  const lastname = document.querySelector('#last');
+  const email = document.querySelector('#email');
+  const birthdate = document.querySelector('#birthdate');
+  const quantity = document.querySelector('#quantity');
+  const tournament = document.querySelectorAll('input[name="location"]:checked');
+  const cgValid = document.querySelector('#checkbox1');
 
-  if (!validName(firstName.value)) {
-    document.querySelector('.firstname-error').style.display = 'block';
+  if (!validName(firstname.value)) {
+    firstname.classList.add('error-display');
     status = false;
   } else {
-    document.querySelector('.firstname-error').style.display = 'none';
+    firstname.classList.remove('error-display');
   }
 
-  if (!validName(lastName.value)) {
-    document.querySelector('.lastname-error').style.display = 'block';
+  if (!validName(lastname.value)) {
+    lastname.classList.add('error-display');
     status = false;
   } else {
-    document.querySelector('.lastname-error').style.display = 'none';
+    lastname.classList.remove('error-display');
   }
 
   if (!validEmail(email.value)) {
-    document.querySelector('.email-error').style.display = 'block';
+    email.classList.add('error-display');
     status = false;
   } else {
-    document.querySelector('.email-error').style.display = 'none';
+    email.classList.remove('error-display');
   }
 
   if (!validBirthdate(birthdate.value)) {
-    document.querySelector('.birthdate-error').style.display = 'block';
+    birthdate.classList.add('error-display');
     status = false;
   } else {
-    document.querySelector('.birthdate-error').style.display = 'none';
+    birthdate.classList.remove('error-display');
   }
 
-  /*  if(!validQuantity(quantity)) {
-    document.querySelector(".quantity-error").style.display = "block"
-    status = false
+  if (!quantity.value || quantity.value < 1 || quantity.value > 99) {
+    quantity.classList.add('error-display');
+    status = false;
   } else {
-    document.querySelector(".quantity-error").style.display = "none"
+    quantity.classList.remove('error-display');
+  }
+  if (tournament.length === 0) {
+    document.querySelector('#location1').classList.add('error-display');
+    status = false;
+  } else {
+    document.querySelector('#location1').classList.remove('error-display');
+  }
+  if (!cgValid.checked) {
+    document.querySelector('#checkbox1').classList.add('error-display');
+    status = false;
+  } else {
+    document.querySelector('#checkbox1').classList.remove('error-display');
   }
 
-  if(!validCgValid(cgValid)) {
-    document.querySelector(".lastname-error").style.display = "block"
-    status = false
+  if (!status) {
+    document.querySelector('.btn-submit').classList.add('error-display');
   } else {
-    document.querySelector(".lastname-error").style.display = "none"
-  } */
-
-  /* if(status) {
-    formValidationModal()
-  } */
+    document.querySelector('.btn-submit').classList.remove('error-display');
+    formValidationModal();
+  }
 
   return false;
 };
