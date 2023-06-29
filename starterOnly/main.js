@@ -7,7 +7,6 @@ const editNav = () => {
   }
 };
 
-// Trigger the validation modal
 const formValidationModal = () => {
   const modalBody = document.querySelector('.modal-body > form');
   const validationModal = document.querySelector('.validation');
@@ -17,27 +16,22 @@ const formValidationModal = () => {
   validationModal.style.visibility = 'visible';
 };
 
-// validName verify the name, return true if valid
 const checkName = (name) => {
   const regex = /^[aA-zZ\s-]{2,}$/;
   return regex.test(name);
 };
 
-// validEmail verify the email address, return true if valid
-const validEmail = (email) => {
+const checkEmail = (email) => {
   const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
   return regex.test(email);
 };
 
-// ValidBirthdate verify if the date is valid and between year 1900 and today date.
-const validBirthdate = (birthdate) => {
+const checkBirthdate = (birthdate) => {
   const date = new Date(birthdate);
   const currentDate = new Date();
   return date instanceof Date && !isNaN(date) && date.getFullYear() >= 1900 && date <= currentDate;
 };
 
-
-// function is called on modal submit
 const validate = () => {
   let isFormValidated = true;
 
@@ -47,33 +41,30 @@ const validate = () => {
   const birthdate = document.querySelector('#birthdate');
   const quantity = document.querySelector('#quantity');
   const tournament = document.querySelectorAll('input[name="location"]:checked');
-  // modifier le nom
-  const cgValid = document.querySelector('#checkbox1');
+  const usageTermsCheckbox = document.querySelector('#checkbox1');
 
-
-  // factoriser le classlist add
-  if (!validName(firstname.value)) {
+  if (!checkName(firstname.value)) {
     firstname.classList.add('error-display');
     isFormValidated = false;
   } else {
     firstname.classList.remove('error-display');
   }
 
-  if (!validName(lastname.value)) {
+  if (!checkName(lastname.value)) {
     lastname.classList.add('error-display');
     isFormValidated = false;
   } else {
     lastname.classList.remove('error-display');
   }
 
-  if (!validEmail(email.value)) {
+  if (!checkEmail(email.value)) {
     email.classList.add('error-display');
     isFormValidated = false;
   } else {
     email.classList.remove('error-display');
   }
 
-  if (!validBirthdate(birthdate.value)) {
+  if (!checkBirthdate(birthdate.value)) {
     birthdate.classList.add('error-display');
     isFormValidated = false;
   } else {
@@ -93,7 +84,7 @@ const validate = () => {
     document.querySelector('#location1').classList.remove('error-display');
   }
 
-  if (!cgValid.checked) {
+  if (!usageTermsCheckbox.checked) {
     document.querySelector('#checkbox1').classList.add('error-display');
     isFormValidated = false;
   } else {
@@ -106,7 +97,4 @@ const validate = () => {
     document.querySelector('.btn-submit').classList.remove('error-display');
     formValidationModal();
   }
-
-  // deplacer dans le html
-  return false;
 };
