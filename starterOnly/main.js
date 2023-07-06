@@ -7,7 +7,7 @@ const editNav = () => {
   }
 };
 
-const formValidationModal = () => {
+const displayValidationModal = () => {
   const modalBody = document.querySelector('.modal-body > form');
   const validationModal = document.querySelector('.validation');
 
@@ -28,9 +28,15 @@ const checkEmail = (email) => {
 
 const checkBirthdate = (birthdate) => {
   const date = new Date(birthdate);
+  console.log(date)
   const currentDate = new Date();
   return date instanceof Date && !isNaN(date) && date.getFullYear() >= 1900 && date <= currentDate;
 };
+
+const checkQuantity = (quantity) => {
+  return !quantity || quantity < 1 || quantity > 99
+}
+
 
 const validate = () => {
   let isFormValidated = true;
@@ -71,12 +77,13 @@ const validate = () => {
     birthdate.classList.remove('error-display');
   }
 
-  if (!quantity.value || quantity.value < 1 || quantity.value > 99) {
+  if (checkQuantity(quantity.value)) {
     quantity.classList.add('error-display');
     isFormValidated = false;
   } else {
     quantity.classList.remove('error-display');
   }
+  
   if (tournament.length === 0) {
     document.querySelector('#location1').classList.add('error-display');
     isFormValidated = false;
@@ -95,6 +102,6 @@ const validate = () => {
     document.querySelector('.btn-submit').classList.add('error-display');
   } else {
     document.querySelector('.btn-submit').classList.remove('error-display');
-    formValidationModal();
+    displayValidationModal();
   }
 };
